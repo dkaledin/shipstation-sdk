@@ -48,14 +48,14 @@ export interface AddressModel {
     name: string;
     company: string;
     street1: string;
-    street2: string;
-    street3: string;
+    street2?: string;
+    street3?: string;
     city: string;
     state: string;
     postalCode: string;
     country: string;
     phone: string;
-    residential: boolean;
+    residential?: boolean;
 }
 export interface WeightModel {
     value: number;
