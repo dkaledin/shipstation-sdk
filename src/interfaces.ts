@@ -8,9 +8,9 @@ export interface CreateShipmentLabelParams {
     dimensions?: DimensionsModel;
     shipFrom: AddressModel;
     shipTo: AddressModel;
-    insuranceOptions?: string;
-    internationalOptions?: string;
-    advancedOptions?: string;
+    insuranceOptions?: any;
+    internationalOptions?: InternationalOptionsModel;
+    advancedOptions?: any;
     testLabel?: boolean;
 }
 
@@ -44,6 +44,21 @@ export interface Shipment {
     shipmentItems: any;
     labelData: string;
     formData: string;
+}
+
+export interface InternationalOptionsModel {
+    contents: 'merchandise' | 'documents' | 'gift' | 'returned_goods' | 'sample';
+    customsItems: CustomsItemModel[];
+    nonDelivery?: 'return_to_sender' | 'treat_as_abandoned';
+}
+
+export interface CustomsItemModel {
+    readonly customsItemId: string;
+    description: string;
+    quantity: number;
+    value: number;
+    harmonizedTariffCode: string;
+    countryOfOrigin: string;
 }
 
 export interface AddressModel {
