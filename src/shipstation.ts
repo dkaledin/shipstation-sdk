@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Mode } from "./interfaces";
+import { Mode, ShipstationResponse } from "./interfaces";
 
 export abstract class Shipstation {
     constructor(
@@ -8,7 +8,7 @@ export abstract class Shipstation {
         protected readonly mode: Mode,
     ) { }
 
-    protected makePostRequest<R>(endPoint: string, body: any) {
+    protected makePostRequest<R>(endPoint: string, body: any): ShipstationResponse<R> {
         const baseUrl = this.getBaseUrl();
         const url = `${baseUrl}${endPoint}`;
         const authHeader = this.getAuthHeader();
@@ -25,7 +25,7 @@ export abstract class Shipstation {
         );
     }
 
-    private getBaseUrl() {
+    private getBaseUrl(): string {
         if (this.mode === Mode.Production) {
             return 'https://ssapi.shipstation.com/';
         } else if (this.mode === Mode.Debug) {

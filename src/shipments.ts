@@ -1,9 +1,8 @@
 import { Shipstation } from './shipstation';
-import { CreateShipmentLabelParams, Shipment, Mode } from './interfaces';
-import { AxiosResponse } from 'axios';
+import { CreateShipmentLabelParams, Shipment, ShipstationResponse, Mode } from './interfaces';
 
 export class Shipments extends Shipstation {
-    public createShipmentLabel(params: CreateShipmentLabelParams): Promise<AxiosResponse<Shipment>> {
+    public createShipmentLabel(params: CreateShipmentLabelParams): ShipstationResponse<Shipment> {
         return this.makePostRequest<Shipment>('shipments/createlabel', params);
     }
 }

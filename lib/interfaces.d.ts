@@ -1,3 +1,4 @@
+import { AxiosResponse } from 'axios';
 export interface CreateShipmentLabelParams {
     carrierCode: string;
     serviceCode: string;
@@ -10,7 +11,7 @@ export interface CreateShipmentLabelParams {
     shipTo: AddressModel;
     insuranceOptions?: any;
     internationalOptions?: InternationalOptionsModel;
-    advancedOptions?: any;
+    advancedOptions?: AdvancedOptionsModel;
     testLabel?: boolean;
 }
 export interface Shipment {
@@ -39,7 +40,7 @@ export interface Shipment {
     weight: WeightModel;
     dimensions: DimensionsModel;
     insuranceOptions: any;
-    advancedOptions: any;
+    advancedOptions: AdvancedOptionsModel;
     shipmentItems: any;
     labelData: string;
     formData: string;
@@ -70,6 +71,25 @@ export interface AddressModel {
     phone: string;
     residential?: boolean;
 }
+export interface AdvancedOptionsModel {
+    warehouseId?: number;
+    nonMachinable?: boolean;
+    saturdayDelivery?: boolean;
+    containsAlcohol?: boolean;
+    storeId?: number;
+    customField1?: string;
+    customField2?: string;
+    customField3?: string;
+    source?: string;
+    mergedOrSplit?: boolean;
+    mergedIds?: number;
+    parentId?: number;
+    billToParty?: string;
+    billToAccount?: string;
+    billToPostalCode?: string;
+    billToCountryCode?: string;
+    billToMyOtherAccount?: string;
+}
 export interface WeightModel {
     value: number;
     units: 'pounds' | 'ounces' | 'grams';
@@ -85,3 +105,4 @@ export declare enum Mode {
     Debug = "Debug",
     Production = "Production"
 }
+export declare type ShipstationResponse<T> = Promise<AxiosResponse<T>>;
