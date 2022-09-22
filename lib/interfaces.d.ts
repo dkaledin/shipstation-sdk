@@ -45,6 +45,13 @@ export interface Shipment {
     labelData: string;
     formData: string;
 }
+export interface VoidShipmentLabelParams {
+    shipmentId: number;
+}
+export interface VoidShipmentLabelResponse {
+    approved: boolean;
+    message: string;
+}
 export interface InternationalOptionsModel {
     contents: 'merchandise' | 'documents' | 'gift' | 'returned_goods' | 'sample';
     customsItems: CustomsItemModel[];
