@@ -50,7 +50,7 @@ shipments.createShipmentLabel({
     .then(response => console.log(response.data));
 ```
 
-### Response
+#### Response
 
 ```js
 {
@@ -83,5 +83,23 @@ shipments.createShipmentLabel({
   shipmentItems: null,
   labelData: 'JVBERi0xLjQKJeLjz9MKMiAwIG9iago8PC9MZW5ndGggNjIvRmlsdGVyL0ZsYXRlRGVjb2RlPj5zdHJlYW0KeJwr5HIK4TI2U...',
   formData: null
+}
+```
+
+### Void Shipment Label
+
+```js
+shipments.voidShipmentLabel({
+  shipmentId: 12345
+})
+.then(response => console.log(response.data));
+```
+
+#### Response
+
+```js
+{
+  approved: true,
+  message: 'Label voided successfully'
 }
 ```
