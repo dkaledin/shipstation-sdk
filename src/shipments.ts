@@ -1,9 +1,12 @@
-import { Shipstation } from './shipstation';
+import {Shipstation} from './shipstation';
 import {
     CreateShipmentLabelParams,
+    IGetShipmentRates,
+    IShipmentRates,
     Shipment,
     ShipstationResponse,
-    VoidShipmentLabelParams, VoidShipmentLabelResponse
+    VoidShipmentLabelParams,
+    VoidShipmentLabelResponse
 } from './interfaces';
 
 export class Shipments extends Shipstation {
@@ -13,5 +16,9 @@ export class Shipments extends Shipstation {
 
     public voidShipmentLabel(params: VoidShipmentLabelParams): ShipstationResponse<VoidShipmentLabelResponse> {
         return this.makePostRequest<VoidShipmentLabelResponse>('/shipments/voidlabel', params)
+    }
+
+    public getShipmentsRates(params: IGetShipmentRates): ShipstationResponse<IShipmentRates> {
+        return this.makePostRequest<IShipmentRates>('/shipments/getrates', params)
     }
 }

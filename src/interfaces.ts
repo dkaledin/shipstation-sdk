@@ -57,6 +57,26 @@ export interface VoidShipmentLabelResponse {
     message: string
 }
 
+export interface IGetShipmentRates {
+    carrierCode: string,
+    fromPostalCode: string,
+    toCountry: string,
+    toPostalCode: string,
+    weight: {
+        value: number,
+        units: string
+    }
+}
+
+export type IShipmentRates = [
+    {
+        serviceName: string,
+        serviceCode: string,
+        shipmentCost: number,
+        otherCost: number
+    }?
+]
+
 export interface InternationalOptionsModel {
     contents: 'merchandise' | 'documents' | 'gift' | 'returned_goods' | 'sample';
     customsItems: CustomsItemModel[];
