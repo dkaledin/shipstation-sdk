@@ -103,3 +103,32 @@ shipments.voidShipmentLabel({
   message: 'Label voided successfully'
 }
 ```
+
+### Get Shipment Rates
+
+```js
+shipments.voidShipmentLabel({
+  carrierCode: "ups",
+  fromPostalCode: "90014",
+  toCountry: "US",
+  toPostalCode: "27502",
+  weight: {
+    value: 300,
+    units: "grams"
+  }
+})
+.then(response => console.log(response.data));
+```
+
+#### Response
+
+```js
+[
+  {
+    serviceName: "UPS Next Day Air Saver®",
+    serviceCode: "ups_next_day_air_saver",
+    shipmentCost: 91.81,
+    otherCost: 14.69
+  }
+]
+```
