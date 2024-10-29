@@ -18,7 +18,7 @@ export class Shipments extends Shipstation {
         return this.makePostRequest<VoidShipmentLabelResponse>('/shipments/voidlabel', params)
     }
 
-    public getShipmentsRates(params: IGetShipmentRates): ShipstationResponse<IShipmentRates> {
-        return this.makePostRequest<IShipmentRates>('/shipments/getrates', params)
+    public getShipmentsRates(params: IGetShipmentRates): ShipstationResponse<IShipmentRates[]> {
+        return this.makePostRequest<IShipmentRates[]>('/shipments/getrates', params)
     }
 }
