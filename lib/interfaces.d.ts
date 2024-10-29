@@ -62,12 +62,12 @@ export interface IGetShipmentRates {
         units: string;
     };
 }
-export declare type IShipmentRates = [{
+export interface IShipmentRates {
     serviceName: string;
     serviceCode: string;
     shipmentCost: number;
     otherCost: number;
-}?];
+}
 export interface InternationalOptionsModel {
     contents: 'merchandise' | 'documents' | 'gift' | 'returned_goods' | 'sample';
     customsItems: CustomsItemModel[];

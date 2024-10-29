@@ -3,5 +3,5 @@ import { CreateShipmentLabelParams, IGetShipmentRates, IShipmentRates, Shipment,
 export declare class Shipments extends Shipstation {
     createShipmentLabel(params: CreateShipmentLabelParams): ShipstationResponse<Shipment>;
     voidShipmentLabel(params: VoidShipmentLabelParams): ShipstationResponse<VoidShipmentLabelResponse>;
-    getShipmentsRates(params: IGetShipmentRates): ShipstationResponse<IShipmentRates>;
+    getShipmentsRates(params: IGetShipmentRates): ShipstationResponse<IShipmentRates[]>;
 }

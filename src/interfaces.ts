@@ -68,14 +68,12 @@ export interface IGetShipmentRates {
     }
 }
 
-export type IShipmentRates = [
-    {
-        serviceName: string,
-        serviceCode: string,
-        shipmentCost: number,
-        otherCost: number
-    }?
-]
+export interface IShipmentRates {
+    serviceName: string,
+    serviceCode: string,
+    shipmentCost: number,
+    otherCost: number
+}
 
 export interface InternationalOptionsModel {
     contents: 'merchandise' | 'documents' | 'gift' | 'returned_goods' | 'sample';
